@@ -444,34 +444,6 @@ function runTests (mode) {
         });
       });
 
-      it('should add validator to list of format generators', function (done) {
-        var cSwagger = _.cloneDeep(tHelpers.swaggerDoc);
-
-        cSwagger.paths['/user/{username}'].get.parameters[0].format = 'sway';
-
-        Sway.create({
-          definition: cSwagger
-        })
-          .then(function (api) {
-            var param = api.getOperation('/user/{username}', 'get').getParameter('username');
-
-            try {
-              param.getSample();
-
-              tHelpers.shouldHadFailed();
-            } catch (err) {
-              assert.equal(err.message, 'unknown registry key "sway" in /');
-            }
-
-            // Register the custom format
-            api.registerFormatGenerator('sway', function () {
-              return 'sway';
-            });
-
-            assert.equal(param.getSample(), 'sway');
-          })
-          .then(done, done);
-      });
     });
 
     describe('#registerValidator', function () {

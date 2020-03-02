@@ -18,7 +18,6 @@ A library for simpler [Swagger](http://swagger.io/) integrations.
         * [.validateResponse(res, [options])](#module_sway.Operation+validateResponse) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
     * [.Parameter](#module_sway.Parameter)
         * [new Parameter(opOrPathObject, definition, definitionFullyResolved, pathToDefinition)](#new_module_sway.Parameter_new)
-        * [.getSample()](#module_sway.Parameter+getSample) ⇒ <code>\*</code>
         * [.getValue(req)](#module_sway.Parameter+getValue) ⇒ <code>[ParameterValue](#module_sway.ParameterValue)</code>
     * [.ParameterValue](#module_sway.ParameterValue)
         * [new ParameterValue(parameterObject, raw)](#new_module_sway.ParameterValue_new)
@@ -33,7 +32,6 @@ A library for simpler [Swagger](http://swagger.io/) integrations.
     * [.Response](#module_sway.Response)
         * [new Response(operationObject, statusCode, definition, definitionFullyResolved, pathToDefinition)](#new_module_sway.Response_new)
         * [.getExample([mimeType])](#module_sway.Response+getExample) ⇒ <code>string</code>
-        * [.getSample()](#module_sway.Response+getSample) ⇒ <code>\*</code>
         * [.validateResponse(res, [options])](#module_sway.Response+validateResponse) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
     * [.ResponseValidationFunction](#module_sway.ResponseValidationFunction) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
     * [.ResponseValidationOptions](#module_sway.ResponseValidationOptions) : <code>object</code>
@@ -60,7 +58,7 @@ A library for simpler [Swagger](http://swagger.io/) integrations.
 ### sway.CreateOptions : <code>object</code>
 Options used when creating the `SwaggerApi`.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -76,8 +74,8 @@ Options used when creating the `SwaggerApi`.
 ### sway.DocumentValidationFunction ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 Function used for custom validation of Swagger documents
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -86,7 +84,7 @@ Function used for custom validation of Swagger documents
 <a name="module_sway.Operation"></a>
 
 ### sway.Operation
-**Kind**: static class of <code>[sway](#module_sway)</code>  
+**Kind**: static class of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -135,9 +133,9 @@ The Swagger Operation object.
 #### operation.getParameter(name, [location]) ⇒ <code>[Parameter](#module_sway.Parameter)</code>
 Returns the parameter with the provided name and location when provided.
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
 **Returns**: <code>[Parameter](#module_sway.Parameter)</code> - The `Parameter` matching the location and name combination or `undefined` if there
-is no match  
+is no match
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -149,15 +147,15 @@ is no match
 #### operation.getParameters() ⇒ <code>[Array.&lt;Parameter&gt;](#module_sway.Parameter)</code>
 Returns all parameters for the operation.
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
-**Returns**: <code>[Array.&lt;Parameter&gt;](#module_sway.Parameter)</code> - All `Parameter` objects for the operation  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
+**Returns**: <code>[Array.&lt;Parameter&gt;](#module_sway.Parameter)</code> - All `Parameter` objects for the operation
 <a name="module_sway.Operation+getResponse"></a>
 
 #### operation.getResponse([statusCode]) ⇒ <code>[Response](#module_sway.Response)</code>
 Returns the response for the requested status code or the default response *(if available)* if none is provided.
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
-**Returns**: <code>[Response](#module_sway.Response)</code> - The `Response` or `undefined` if one cannot be found  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
+**Returns**: <code>[Response](#module_sway.Response)</code> - The `Response` or `undefined` if one cannot be found
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -168,8 +166,8 @@ Returns the response for the requested status code or the default response *(if 
 #### operation.getResponses() ⇒ <code>[Array.&lt;Response&gt;](#module_sway.Response)</code>
 Returns all responses for the operation.
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
-**Returns**: <code>[Array.&lt;Response&gt;](#module_sway.Response)</code> - All `Response` objects for the operation  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
+**Returns**: <code>[Array.&lt;Response&gt;](#module_sway.Response)</code> - All `Response` objects for the operation
 <a name="module_sway.Operation+getSecurity"></a>
 
 #### operation.getSecurity() ⇒ <code>Array.&lt;object&gt;</code>
@@ -179,8 +177,8 @@ The difference between this API and `this.security` is that `this.security` is t
 operation where as this API will return the global `security` value when available and this operation's security
 is undefined.
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
-**Returns**: <code>Array.&lt;object&gt;</code> - The security for this operation  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
+**Returns**: <code>Array.&lt;object&gt;</code> - The security for this operation
 <a name="module_sway.Operation+validateRequest"></a>
 
 #### operation.validateRequest(req, [options]) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
@@ -200,8 +198,8 @@ For `path` parameters, we will use the operation's `regexp` property to parse ou
 
 *(See: [https://nodejs.org/api/http.html#http_class_http_clientrequest](https://nodejs.org/api/http.html#http_class_http_clientrequest))*
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -213,8 +211,8 @@ For `path` parameters, we will use the operation's `regexp` property to parse ou
 #### operation.validateResponse(res, [options]) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 Validates the response.
 
-**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: instance method of <code>[Operation](#module_sway.Operation)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -224,7 +222,7 @@ Validates the response.
 <a name="module_sway.Parameter"></a>
 
 ### sway.Parameter
-**Kind**: static class of <code>[sway](#module_sway)</code>  
+**Kind**: static class of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -240,7 +238,6 @@ Validates the response.
 
 * [.Parameter](#module_sway.Parameter)
     * [new Parameter(opOrPathObject, definition, definitionFullyResolved, pathToDefinition)](#new_module_sway.Parameter_new)
-    * [.getSample()](#module_sway.Parameter+getSample) ⇒ <code>\*</code>
     * [.getValue(req)](#module_sway.Parameter+getValue) ⇒ <code>[ParameterValue](#module_sway.ParameterValue)</code>
 
 <a name="new_module_sway.Parameter_new"></a>
@@ -261,15 +258,6 @@ object.
 | definitionFullyResolved | <code>object</code> | The parameter definition with all of its resolvable references resolved |
 | pathToDefinition | <code>Array.&lt;string&gt;</code> | The path segments to the parameter definition |
 
-<a name="module_sway.Parameter+getSample"></a>
-
-#### parameter.getSample() ⇒ <code>\*</code>
-Returns a sample value for the parameter based on its schema;
-
-**Kind**: instance method of <code>[Parameter](#module_sway.Parameter)</code>  
-**Returns**: <code>\*</code> - The sample value  
-<a name="module_sway.Parameter+getValue"></a>
-
 #### parameter.getValue(req) ⇒ <code>[ParameterValue](#module_sway.ParameterValue)</code>
 Returns the parameter value from the request.
 
@@ -287,8 +275,8 @@ For `path` parameters, we will use the operation's `regexp` property to parse ou
 
 *(See: [https://nodejs.org/api/http.html#http_class_http_clientrequest](https://nodejs.org/api/http.html#http_class_http_clientrequest))*
 
-**Kind**: instance method of <code>[Parameter](#module_sway.Parameter)</code>  
-**Returns**: <code>[ParameterValue](#module_sway.ParameterValue)</code> - The parameter value object  
+**Kind**: instance method of <code>[Parameter](#module_sway.Parameter)</code>
+**Returns**: <code>[ParameterValue](#module_sway.ParameterValue)</code> - The parameter value object
 **Throws**:
 
 - <code>Error</code> If the `in` value of the parameter's schema is not valid or if the `req` property to retrieve the
@@ -302,7 +290,7 @@ parameter is missing
 <a name="module_sway.ParameterValue"></a>
 
 ### sway.ParameterValue
-**Kind**: static class of <code>[sway](#module_sway)</code>  
+**Kind**: static class of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -329,7 +317,7 @@ Object representing a parameter value.
 <a name="module_sway.Path"></a>
 
 ### sway.Path
-**Kind**: static class of <code>[sway](#module_sway)</code>  
+**Kind**: static class of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -376,9 +364,9 @@ The Path object.
 #### path.getOperation(idOrMethod) ⇒ <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code>
 Return the operation for this path and operation id or method.
 
-**Kind**: instance method of <code>[Path](#module_sway.Path)</code>  
+**Kind**: instance method of <code>[Path](#module_sway.Path)</code>
 **Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - The `Operation` objects for this path and method or `undefined` if there is no
-operation for the provided method  
+operation for the provided method
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -389,15 +377,15 @@ operation for the provided method
 #### path.getOperations() ⇒ <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code>
 Return the operations for this path.
 
-**Kind**: instance method of <code>[Path](#module_sway.Path)</code>  
-**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - The `Operation` objects for this path  
+**Kind**: instance method of <code>[Path](#module_sway.Path)</code>
+**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - The `Operation` objects for this path
 <a name="module_sway.Path+getOperationsByTag"></a>
 
 #### path.getOperationsByTag(tag) ⇒ <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code>
 Return the operations for this path and tag.
 
-**Kind**: instance method of <code>[Path](#module_sway.Path)</code>  
-**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - The `Operation` objects for this path and tag  
+**Kind**: instance method of <code>[Path](#module_sway.Path)</code>
+**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - The `Operation` objects for this path and tag
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -408,15 +396,15 @@ Return the operations for this path and tag.
 #### path.getParameters() ⇒ <code>[Array.&lt;Parameter&gt;](#module_sway.Parameter)</code>
 Return the parameters for this path.
 
-**Kind**: instance method of <code>[Path](#module_sway.Path)</code>  
-**Returns**: <code>[Array.&lt;Parameter&gt;](#module_sway.Parameter)</code> - The `Parameter` objects for this path  
+**Kind**: instance method of <code>[Path](#module_sway.Path)</code>
+**Returns**: <code>[Array.&lt;Parameter&gt;](#module_sway.Parameter)</code> - The `Parameter` objects for this path
 <a name="module_sway.RequestValidationFunction"></a>
 
 ### sway.RequestValidationFunction ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 Request validation function.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -428,7 +416,7 @@ Request validation function.
 ### sway.RequestValidationOptions : <code>object</code>
 Request validation options.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Default | Description |
@@ -439,7 +427,7 @@ Request validation options.
 <a name="module_sway.Response"></a>
 
 ### sway.Response
-**Kind**: static class of <code>[sway](#module_sway)</code>  
+**Kind**: static class of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -455,7 +443,6 @@ Request validation options.
 * [.Response](#module_sway.Response)
     * [new Response(operationObject, statusCode, definition, definitionFullyResolved, pathToDefinition)](#new_module_sway.Response_new)
     * [.getExample([mimeType])](#module_sway.Response+getExample) ⇒ <code>string</code>
-    * [.getSample()](#module_sway.Response+getSample) ⇒ <code>\*</code>
     * [.validateResponse(res, [options])](#module_sway.Response+validateResponse) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 
 <a name="new_module_sway.Response_new"></a>
@@ -482,27 +469,18 @@ The Swagger Response object.
 #### response.getExample([mimeType]) ⇒ <code>string</code>
 Returns the response example for the mime-type.
 
-**Kind**: instance method of <code>[Response](#module_sway.Response)</code>  
-**Returns**: <code>string</code> - The response example as a string or `undefined` if the response code and/or mime-type is missing  
+**Kind**: instance method of <code>[Response](#module_sway.Response)</code>
+**Returns**: <code>string</code> - The response example as a string or `undefined` if the response code and/or mime-type is missing
 
 | Param | Type | Description |
 | --- | --- | --- |
 | [mimeType] | <code>string</code> | The mime type |
 
-<a name="module_sway.Response+getSample"></a>
-
-#### response.getSample() ⇒ <code>\*</code>
-Returns a sample value.
-
-**Kind**: instance method of <code>[Response](#module_sway.Response)</code>  
-**Returns**: <code>\*</code> - The sample value for the response, which can be undefined if the response schema is not provided  
-<a name="module_sway.Response+validateResponse"></a>
-
 #### response.validateResponse(res, [options]) ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 Validates the response.
 
-**Kind**: instance method of <code>[Response](#module_sway.Response)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: instance method of <code>[Response](#module_sway.Response)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -514,8 +492,8 @@ Validates the response.
 ### sway.ResponseValidationFunction ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 Response validation function.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -527,7 +505,7 @@ Response validation function.
 ### sway.ResponseValidationOptions : <code>object</code>
 Response validation options.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Default | Description |
@@ -544,7 +522,7 @@ Since the low level `http.ServerResponse` object is not always guaranteed and ev
 to gather the necessary parts of the response to perform validation, this object encapsulates the required response
 information to perform response validation.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Default | Description |
@@ -557,7 +535,7 @@ information to perform response validation.
 <a name="module_sway.SwaggerApi"></a>
 
 ### sway.SwaggerApi
-**Kind**: static class of <code>[sway](#module_sway)</code>  
+**Kind**: static class of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -621,9 +599,9 @@ Returns the operation for the given path and operation.
 
 *(See: [https://nodejs.org/api/http.html#http_class_http_clientrequest](https://nodejs.org/api/http.html#http_class_http_clientrequest))*
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
 **Returns**: <code>[Operation](#module_sway.Operation)</code> - The `Operation` for the provided operation id, or path and method or `undefined` if
-there is no operation for that operation id, or path and method combination  
+there is no operation for that operation id, or path and method combination
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -635,8 +613,8 @@ there is no operation for that operation id, or path and method combination
 #### swaggerApi.getOperations([path]) ⇒ <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code>
 Returns all operations for the provided path or all operations in the API.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
-**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - All `Operation` objects for the provided path or all API operations  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
+**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - All `Operation` objects for the provided path or all API operations
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -647,8 +625,8 @@ Returns all operations for the provided path or all operations in the API.
 #### swaggerApi.getOperationsByTag([tag]) ⇒ <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code>
 Returns all operations for the provided tag.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
-**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - All `Operation` objects for the provided tag  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
+**Returns**: <code>[Array.&lt;Operation&gt;](#module_sway.Operation)</code> - All `Operation` objects for the provided tag
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -666,8 +644,8 @@ Returns the path object for the given path or request.
 
 *(See: [https://nodejs.org/api/http.html#http_class_http_clientrequest](https://nodejs.org/api/http.html#http_class_http_clientrequest))*
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
-**Returns**: <code>[Path](#module_sway.Path)</code> - The corresponding `Path` object for the requested path or request  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
+**Returns**: <code>[Path](#module_sway.Path)</code> - The corresponding `Path` object for the requested path or request
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -678,14 +656,14 @@ Returns the path object for the given path or request.
 #### swaggerApi.getPaths() ⇒ <code>[Array.&lt;Path&gt;](#module_sway.Path)</code>
 Returns all path objects for the Swagger API.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
-**Returns**: <code>[Array.&lt;Path&gt;](#module_sway.Path)</code> - The `Path` objects  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
+**Returns**: <code>[Array.&lt;Path&gt;](#module_sway.Path)</code> - The `Path` objects
 <a name="module_sway.SwaggerApi+registerFormat"></a>
 
 #### swaggerApi.registerFormat(name, validator)
 Registers a custom format.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -697,7 +675,7 @@ Registers a custom format.
 #### swaggerApi.registerFormatGenerator(name, formatGenerator)
 Registers a custom format generator.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -709,7 +687,7 @@ Registers a custom format generator.
 #### swaggerApi.registerValidator(validator)
 Registers a custom validator.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
 **Throws**:
 
 - <code>TypeError</code> If the validator is not a function
@@ -724,7 +702,7 @@ Registers a custom validator.
 #### swaggerApi.unregisterFormat(name)
 Unregisters a custom format.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -735,7 +713,7 @@ Unregisters a custom format.
 #### swaggerApi.unregisterFormatGenerator(name)
 Unregisters a custom format generator.
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -746,8 +724,8 @@ Unregisters a custom format generator.
 #### swaggerApi.validate() ⇒ <code>[ValidationResults](#module_sway.ValidationResults)</code>
 Performs validation of the Swagger API document(s).
 
-**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>  
-**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results  
+**Kind**: instance method of <code>[SwaggerApi](#module_sway.SwaggerApi)</code>
+**Returns**: <code>[ValidationResults](#module_sway.ValidationResults)</code> - The validation results
 <a name="module_sway.ValidationEntry"></a>
 
 ### sway.ValidationEntry : <code>object</code>
@@ -757,7 +735,7 @@ When this object is created as a result of JSON Schema validation, this object i
 [z-schema](https://github.com/zaggino/z-schema) and it owns the structure so there can be extra properties not
 documented below.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -777,7 +755,7 @@ documented below.
 ### sway.ValidationResults : <code>object</code>
 Validation results object.
 
-**Kind**: static typedef of <code>[sway](#module_sway)</code>  
+**Kind**: static typedef of <code>[sway](#module_sway)</code>
 **Properties**
 
 | Name | Type | Description |
@@ -790,14 +768,14 @@ Validation results object.
 ### sway.create(options) ⇒ <code>[Promise.&lt;SwaggerApi&gt;](#module_sway.SwaggerApi)</code>
 Creates a SwaggerApi object from its Swagger definition(s).
 
-**Kind**: static method of <code>[sway](#module_sway)</code>  
-**Returns**: <code>[Promise.&lt;SwaggerApi&gt;](#module_sway.SwaggerApi)</code> - The promise  
+**Kind**: static method of <code>[sway](#module_sway)</code>
+**Returns**: <code>[Promise.&lt;SwaggerApi&gt;](#module_sway.SwaggerApi)</code> - The promise
 
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>[CreateOptions](#module_sway.CreateOptions)</code> | The options for loading the definition(s) |
 
-**Example**  
+**Example**
 ```js
 SwaggerApi.create({definition: 'http://petstore.swagger.io/v2/swagger.yaml'})
   .then(function (api) {
