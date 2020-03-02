@@ -104,7 +104,7 @@ declare module 'sway' {
 
     /**
      * Server response wrapper.
-     * 
+     *
      * Since the low level `http.ServerResponse` object is not always guaranteed and even if it is, there is no public way
      * to gather the necessary parts of the response to perform validation, this object encapsulates the required response
      * information to perform response validation.
@@ -130,7 +130,7 @@ declare module 'sway' {
 
     /**
      * Validation error/warning object.
-     * 
+     *
      * When this object is created as a result of JSON Schema validation, this object is created by
      * [z-schema](https://github.com/zaggino/z-schema) and it owns the structure so there can be extra properties not
      * documented below.
@@ -193,9 +193,9 @@ declare module 'sway' {
     class SwaggerApi {
         /**
          * The Swagger API object.
-         * 
+         *
          * **Note:** Do not use directly.
-         * 
+         *
          * **Extra Properties:** Other than the documented properties, this object also exposes all properties of the definition
          * object.
          * @param definition - The original Swagger definition
@@ -208,13 +208,13 @@ declare module 'sway' {
 
         /**
          * Returns the operation for the given path and operation.
-         * 
+         *
          * **Note:** Below is the list of properties used when `reqOrPath` is an `http.ClientRequest` *(or equivalent)*:
-         * 
+         *
          * * `method`
          * * `originalUrl`
          * * `url`
-         * 
+         *
          * *(See: {@link https://nodejs.org/api/http.html#http_class_http_clientrequest})*
          * @param idOrPathOrReq - The Swagger opeartion id, path string or the http client request *(or
          *        equivalent)*
@@ -240,12 +240,12 @@ declare module 'sway' {
 
         /**
          * Returns the path object for the given path or request.
-         * 
+         *
          * **Note:** Below is the list of properties used when `reqOrPath` is an `http.ClientRequest` *(or equivalent)*:
-         * 
+         *
          * * `originalUrl`
          * * `url`
-         * 
+         *
          * *(See: {@link https://nodejs.org/api/http.html#http_class_http_clientrequest})*
          * @param pathOrReq - The Swagger path string or the http client request *(or equivalent)*
          * @returns The corresponding `Path` object for the requested path or request
@@ -302,9 +302,9 @@ declare module 'sway' {
     class Operation {
         /**
          * The Swagger Operation object.
-         * 
+         *
          * **Note:** Do not use directly.
-         * 
+         *
          * **Extra Properties:** Other than the documented properties, this object also exposes all properties of the definition
          * object.
          * @param pathObject - The Path object
@@ -346,7 +346,7 @@ declare module 'sway' {
 
         /**
          * Returns the composite security definitions for this operation.
-         * 
+         *
          * The difference between this API and `this.security` is that `this.security` is the raw `security` value for the
          * operation where as this API will return the global `security` value when available and this operation's security
          * is undefined.
@@ -356,19 +356,19 @@ declare module 'sway' {
 
         /**
          * Validates the request.
-         * 
+         *
          * **Note:** Below is the list of `req` properties used *(req should be an `http.ClientRequest` or equivalent)*:
-         * 
+         *
          * * `body`: Used for `body` and `formData` parameters
          * * `files`: Used for `formData` parameters whose `type` is `file`
          * * `headers`: Used for `header` parameters and consumes
          * * `originalUrl`: used for `path` parameters
          * * `query`: Used for `query` parameters
          * * `url`: used for `path` parameters
-         * 
+         *
          * For `path` parameters, we will use the operation's `regexp` property to parse out path parameters using the
          * `originalUrl` or `url` property.
-         * 
+         *
          * *(See: {@link https://nodejs.org/api/http.html#http_class_http_clientrequest})*
          * @param req - The http client request *(or equivalent)*
          * @param options - The validation options
@@ -389,7 +389,7 @@ declare module 'sway' {
     class ParameterValue {
         /**
          * Object representing a parameter value.
-         * 
+         *
          * **Note:** Do not use directly.
          * @param parameterObject - The `Parameter` object
          * @param raw - The original/raw value
@@ -401,9 +401,9 @@ declare module 'sway' {
     class Parameter {
         /**
          * The Swagger Parameter object.
-         * 
+         *
          * **Note:** Do not use directly.
-         * 
+         *
          * **Extra Properties:** Other than the documented properties, this object also exposes all properties of the definition
          * object.
          * @param opOrPathObject - The `Operation` or `Path` object
@@ -415,26 +415,20 @@ declare module 'sway' {
         constructor(opOrPathObject: Operation | Path, definition: object, definitionFullyResolved: object, pathToDefinition: string[]);
 
         /**
-         * Returns a sample value for the parameter based on its schema;
-         * @returns The sample value
-         */
-        getSample(): any;
-
-        /**
          * Returns the parameter value from the request.
-         * 
+         *
          * **Note:** Below is the list of `req` properties used *(req should be an `http.ClientRequest` or equivalent)*:
-         * 
+         *
          * * `body`: Used for `body` and `formData` parameters
          * * `files`: Used for `formData` parameters whose `type` is `file`
          * * `headers`: Used for `header` parameters
          * * `originalUrl`: used for `path` parameters
          * * `query`: Used for `query` parameters
          * * `url`: used for `path` parameters
-         * 
+         *
          * For `path` parameters, we will use the operation's `regexp` property to parse out path parameters using the
          * `originalUrl` or `url` property.
-         * 
+         *
          * *(See: {@link https://nodejs.org/api/http.html#http_class_http_clientrequest})*
          * @param req - The http client request *(or equivalent)*
          * @returns The parameter value object
@@ -448,9 +442,9 @@ declare module 'sway' {
     class Path {
         /**
          * The Path object.
-         * 
+         *
          * **Note:** Do not use directly.
-         * 
+         *
          * **Extra Properties:** Other than the documented properties, this object also exposes all properties of the
          * definition object.
          * @param api - The `SwaggerApi` object
@@ -494,9 +488,9 @@ declare module 'sway' {
     class Response {
         /**
          * The Swagger Response object.
-         * 
+         *
          * **Note:** Do not use directly.
-         * 
+         *
          * **Extra Properties:** Other than the documented properties, this object also exposes all properties of the
          * definition object.
          * @param operationObject - The `Operation` object
@@ -514,12 +508,6 @@ declare module 'sway' {
          * @returns The response example as a string or `undefined` if the response code and/or mime-type is missing
          */
         getExample(mimeType?: string): string;
-
-        /**
-         * Returns a sample value.
-         * @returns The sample value for the response, which can be undefined if the response schema is not provided
-         */
-        getSample(): any;
 
         /**
          * Validates the response.
