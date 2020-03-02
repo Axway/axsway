@@ -29,7 +29,6 @@
 var _ = require('lodash');
 var assert = require('assert');
 var tHelpers = require('./helpers');
-var sHelpers = require('../lib/helpers');
 var Sway = tHelpers.getSway();
 var YAML = require('js-yaml');
 
