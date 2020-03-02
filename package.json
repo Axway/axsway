@@ -28,7 +28,6 @@
     "url": "git://github.com/axway/axsway.git"
   },
   "files": [
-    "dist",
     "index.d.ts",
     "index.js",
     "lib"
