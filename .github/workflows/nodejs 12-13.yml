@@ -18,6 +18,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: mocha test/**/test-*.js !test/browser/test-*.js
+    - run: ./node_modules/.bin/mocha test/**/test-*.js !test/browser/test-*.js
       env:
         CI: true
