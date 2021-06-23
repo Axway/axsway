@@ -1,4 +1,4 @@
-name: Run tests
+name: Run tests 12.x - 16.x
 
 # on: [push, pull_request]
 
