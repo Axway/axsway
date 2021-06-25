@@ -1,6 +1,6 @@
 {
   "name": "@axway/axsway",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A library that simplifies Swagger integrations.",
   "main": "index.js",
   "types": "index.d.ts",
